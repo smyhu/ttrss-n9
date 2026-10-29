@@ -54,7 +54,7 @@ QNetworkAccessManager* MyNetworkManager::create(QObject *parent) {
 #if !defined(Q_OS_SAILFISH)
     QNetworkDiskCache* diskCache = new QNetworkDiskCache(parent);
     diskCache->setCacheDirectory(QDesktopServices::storageLocation(QDesktopServices::CacheLocation));
-    diskCache->setMaximumCacheSize(5*1024*1024); // 5Mo
+    diskCache->setMaximumCacheSize(30*1024*1024); // 30 MB, article images are large
     nam->setCache(diskCache);
 #endif
 

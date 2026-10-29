@@ -276,7 +276,8 @@ function process_updateConfig(callback, httpreq) {
 
     responsesPending['config'] = false;
 
-    if(state['icons_dir'])
+    // tt-rss 21+ no longer sends icons_dir, only icons_url
+    if(state['icons_dir'] || state['icons_url'])
         if(!processPendingRequests(callback))
             //This action is complete (as there's no other requests to do, fire callback saying all ok
             if(callback)
@@ -839,6 +840,13 @@ function getIconUrl(feedId) {
         return "file:///opt/ttrss/qml/resources/ic_rss_enabled.png"
         break;
     default:
-        return state['proxy'] + state['shorturl'] + state['icons_url'] + '/' + feedId + '.ico'
+        var iconsUrl = state['icons_url'] ? String(state['icons_url']) : ''
+        // tt-rss 21+: icons_url is an absolute link to public.php
+        if (iconsUrl.indexOf('public.php') >= 0) {
+            if (iconsUrl.indexOf('://') < 0)
+                iconsUrl = state['shorturl'] + iconsUrl
+            return state['proxy'] + iconsUrl + '?op=feed_icon&id=' + feedId
+        }
+        return state['proxy'] + state['shorturl'] + iconsUrl + '/' + feedId + '.ico'
     }
 }

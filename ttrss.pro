@@ -17,7 +17,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA or see
 # http://www.gnu.org/licenses/.
 
-VERSION = 0.4.7
+VERSION = 0.4.8
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 DEFINES += TARGET=\\\"$$TARGET\\\"
 
@@ -124,6 +124,7 @@ TRANSLATIONS += i18n/qml-translation.cs.ts \
     i18n/qml-translation.fr.ts \
     i18n/qml-translation.ru.ts \
     i18n/qml-translation.ro.ts \
+    i18n/qml-translation.pl.ts \
     i18n/qml-translation.zh_CN.ts
 
 contains(MEEGO_EDITION,harmattan) {

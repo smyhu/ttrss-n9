@@ -1,0 +1,16 @@
+ttrss - Tiny Tiny RSS Reader for MeeGo Harmattan (Nokia N9)
+
+Copyright (C) 2012-2015 Hauke Schade <cnlpete@cnlpete.de> and contributors
+Original source: https://github.com/cnlpete/ttrss
+
+N9 revival (2026, version 0.4.8 and later): Claude (Anthropic) together with
+smyhu - https://github.com/smyhu/ttrss-n9
+Changes: works with current Tiny Tiny RSS servers (getConfig without icons_dir,
+feed icons via public.php), Polish translation, new launcher icon, larger image
+cache, Share UI called over D-Bus.
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version. The full text is in LICENSE.txt in the source repository and in
+/usr/share/common-licenses/GPL-2 on Debian-based systems.

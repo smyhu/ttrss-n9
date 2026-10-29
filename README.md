@@ -1,3 +1,39 @@
+ttrss for Nokia N9 (revival, 0.4.8)
+==========
+
+This is a fork of [cnlpete/ttrss](https://github.com/cnlpete/ttrss)
+(tag `harmattan-v0.4.7`, by Hauke Schade) that makes the Harmattan app work
+again with current Tiny Tiny RSS servers (tested with tt-rss 2025-04-25,
+API level 18+).
+
+Changes in 0.4.8:
+
+* login works with new servers: `getConfig` no longer returns `icons_dir`,
+  only `icons_url` (the app used to hang silently after login)
+* feed icons are loaded from `public.php?op=feed_icon&id=N` on new servers
+* new launcher icon in the style of our other N9 apps
+* Polish translation (`i18n/qml-translation.pl.ts`); English stays the default
+* faster article view (unused QtWebKit import removed), 30 MB image cache
+* sharing uses the Share UI D-Bus service directly
+* project links point to this fork
+
+Install on the phone (as root, the package replaces the Ovi Store/OpenRepos one):
+
+    aegis-dpkg -i /home/developer/ttrss_0.4.8_armel.deb
+
+The ready package is in `dist/`. In the app settings use your server address
+(e.g. `https://example.com/tt-rss`) and set *Minimum SSL Version* to *Any* if
+the server does not accept TLS 1.0 (needs the N9 TLS 1.2 patch).
+
+Building without the old Qt SDK: see `packaging/build-n9.sh` (clang + qemu-arm
+with the Harmattan Qt 4.7.4 headers and libraries) and `packaging/make-deb.sh`.
+
+Credits: original app by Hauke Schade and contributors (GPL-2+).
+Revived for the Nokia N9 by Claude (Anthropic) together with
+[smyhu](https://github.com/smyhu) (2026).
+
+---
+
 ttrss
 ==========
 

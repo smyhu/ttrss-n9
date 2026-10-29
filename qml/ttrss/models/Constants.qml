@@ -25,10 +25,10 @@ import QtQuick 1.1 // harmattan
 QtObject{
     id: constant
 
-    property url website: "http://ttrss.cnlpete.de/"
+    property url website: "https://github.com/smyhu/ttrss-n9"
     property url sourceRepoSite: "https://github.com/cnlpete/ttrss/"
-    property url issueTrackerUrl: "https://github.com/cnlpete/ttrss/issues"
-    property url registerUrl: "http://tt-rss.org/redmine/projects/tt-rss/wiki"
+    property url issueTrackerUrl: "https://github.com/smyhu/ttrss-n9/issues"
+    property url registerUrl: "https://tt-rss.org/"
     property url donateUrl: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WUWGSGAK8K7ZN"
 
     property string archivedArticles: qsTr('Archived articles')

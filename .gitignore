@@ -4,3 +4,4 @@
 *.pro.user*
 *.qm
 *.lock
+build-n9/

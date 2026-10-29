@@ -21,7 +21,6 @@
 
 import QtQuick 1.1
 import com.nokia.meego 1.0
-import QtWebKit 1.0
 import "../components" 1.0
 
 Page {
@@ -70,7 +69,7 @@ Page {
                     right: parent.right
                 }
 
-                color: theme.inverted ? MyTheme.secondaryColor : secondaryColorInverted
+                color: theme.inverted ? MyTheme.secondaryColorInverted : MyTheme.secondaryColor
             }
             Row {
                 id: labelsrepeater

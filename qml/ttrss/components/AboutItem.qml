@@ -33,7 +33,10 @@ MenuItem {
             donateurl: constant.donateUrl,
             text: qsTr("Author: %1").arg("Hauke Schade 2012-2014") + "<br/>"
                    + qsTr("Thanks to:") + " "
-                    + "Francois Cattin, Jakub Kožíšek, Alberto Mardegan, gwmgdemj, equeim, Silviu Vulcan, Michael Käufl",
+                    + "Francois Cattin, Jakub Kožíšek, Alberto Mardegan, gwmgdemj, equeim, Silviu Vulcan, Michael Käufl"
+                   + "<br/><br/>"
+                   + qsTr("Revived for the Nokia N9 by Claude (Anthropic) together with smyhu (2026).")
+                   + "<br/>" + qsTr("Works with current Tiny Tiny RSS servers."),
             homepageurl: constant.website,
             issuetrackertext: qsTr("If you encounter bugs or have feature requests, please visit the Issue Tracker"),
             issuetrackerurl: constant.issueTrackerUrl

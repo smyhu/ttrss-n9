@@ -22,8 +22,13 @@
 #include "qmlutils.hh"
 
 #ifdef Q_OS_HARMATTAN
-#include <MDataUri>
-#include <maemo-meegotouch-interfaces/shareuiinterface.h>
+// Share UI is called over D-Bus directly, so the build does not need the
+// MDataUri / shareuiinterface headers, which are no longer available.
+#include <QtCore/QStringList>
+#include <QtCore/QUrl>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusPendingCall>
 #endif
 
 QScopedPointer<QMLUtils> QMLUtils::m_instance(0);
@@ -40,27 +45,21 @@ QMLUtils *QMLUtils::instance() {
 
 void QMLUtils::share(const QString &link, const QString &title) {
 #ifdef Q_OS_HARMATTAN
-    MDataUri uri;
-    uri.setMimeType("text/x-url");
-
-    uri.setTextData(link);
-
+    // data URI in the format produced by MDataUri: data:text/x-url;title=...,<link>
+    QString uri = QLatin1String("data:text/x-url");
     if (!title.isEmpty())
-        uri.setAttribute("title", title);
+        uri += QLatin1String(";title=") + QString::fromLatin1(QUrl::toPercentEncoding(title));
+    uri += QLatin1Char(',') + QString::fromLatin1(QUrl::toPercentEncoding(link));
 
-    if (!uri.isValid()) {
-        qCritical("QMLUtils::shareLink(): Invalid URI");
-        return;
-    }
-
-    ShareUiInterface shareIf("com.nokia.ShareUi");
+    QDBusInterface shareIf("com.nokia.ShareUi", "/", "com.nokia.maemo.meegotouch.ShareUiInterface",
+                           QDBusConnection::sessionBus());
 
     if (!shareIf.isValid()) {
         qCritical("QMLUtils::shareLink(): Invalid Share UI interface");
         return;
     }
 
-    shareIf.share(QStringList() << uri.toString());
+    shareIf.asyncCall("share", QStringList() << uri);
 #else
     qWarning("QMLUtils::shareLink(): This function only available on Harmattan");
     Q_UNUSED(title)
