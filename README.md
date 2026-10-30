@@ -1,4 +1,4 @@
-ttrss for Nokia N9 (revival, 0.4.8)
+ttrss for Nokia N9 (revival, 0.4.9)
 ==========
 
 This is a fork of [cnlpete/ttrss](https://github.com/cnlpete/ttrss)
@@ -6,7 +6,7 @@ This is a fork of [cnlpete/ttrss](https://github.com/cnlpete/ttrss)
 again with current Tiny Tiny RSS servers (tested with tt-rss 2025-04-25,
 API level 18+).
 
-Changes in 0.4.8:
+Changes in 0.4.8–0.4.9:
 
 * login works with new servers: `getConfig` no longer returns `icons_dir`,
   only `icons_url` (the app used to hang silently after login)
@@ -16,10 +16,11 @@ Changes in 0.4.8:
 * faster article view (unused QtWebKit import removed), 30 MB image cache
 * sharing uses the Share UI D-Bus service directly
 * project links point to this fork
+* 0.4.9: article view scrolls only vertically (it was slightly wider than the screen)
 
 Install on the phone (as root, the package replaces the Ovi Store/OpenRepos one):
 
-    aegis-dpkg -i /home/developer/ttrss_0.4.8_armel.deb
+    aegis-dpkg -i /home/developer/ttrss_0.4.9_armel.deb
 
 The ready package is in `dist/`. In the app settings use your server address
 (e.g. `https://example.com/tt-rss`) and set *Minimum SSL Version* to *Any* if

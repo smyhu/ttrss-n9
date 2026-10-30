@@ -44,8 +44,10 @@ Page {
         id: flick
         width: parent.width - MyTheme.paddingMedium - MyTheme.paddingMedium
         height: parent.height
-        contentWidth: parent.width
+        // content exactly as wide as the view: vertical scrolling only
+        contentWidth: width
         contentHeight: content.height
+        flickableDirection: Flickable.VerticalFlick
         interactive: true
         clip: true
         anchors {
