@@ -6,6 +6,8 @@ This is a fork of [cnlpete/ttrss](https://github.com/cnlpete/ttrss)
 again with current Tiny Tiny RSS servers (tested with tt-rss 2025-04-25,
 API level 18+).
 
+![Screenshots from the emulator](art/screenshots.png)
+
 Changes in 0.4.8–0.4.9:
 
 * login works with new servers: `getConfig` no longer returns `icons_dir`,
